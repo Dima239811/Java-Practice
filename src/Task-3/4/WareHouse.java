@@ -6,9 +6,9 @@ public class WareHouse {
     private String NameWareHouse;
     private String address;
     private String email;
-    private int maxCapacityBook;
+    private final int maxCapacityBook;
 
-    public WareHouse(List<Book> books, String nameWareHouse, String address, String email, int maxCapacityBook) {
+    public WareHouse(String nameWareHouse, String address, String email, int maxCapacityBook) {
         this.books = new ArrayList<>();
         NameWareHouse = nameWareHouse;
         this.address = address;
@@ -52,7 +52,47 @@ public class WareHouse {
         return maxCapacityBook;
     }
 
-    public void setMaxCapacityBook(int maxCapacityBook) {
-        this.maxCapacityBook = maxCapacityBook;
+
+    // cписание книги со склада
+    public void writeOffBookFromWareHouse(Book book) {
+        for (Book b: books) {
+            if (b.equals(book)) {
+                b.setStatus("отсутствует");
+                System.out.println("Статус книги изменен на - отсутсвует");
+                return;
+            }
+        }
+        System.out.println("Книга " + book + "  не найдена");
     }
+
+    public void addBook(Book book) {
+        if (this.maxCapacityBook > books.size()) {
+            books.add(book);
+            System.out.println("Книга успешно добавлена на склад!");
+        }
+        else {
+            System.out.println("Склад переполнен!");
+        }
+    }
+
+    // поиск книги
+    public Book findAvailableBook(Book book) {
+        for (Book b : books) {
+            if (b.equals(book) && "в наличии".equals(b.getStatus())) {
+                return b;
+            }
+        }
+        return null;
+    }
+
+    public boolean hasAvailableBook(Book book) {
+        for (Book b : books) {
+            if (b.equals(book) && "в наличии".equals(b.getStatus())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }

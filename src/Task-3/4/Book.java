@@ -3,14 +3,14 @@ public class Book {
     private String authtor;
     private int year;
     private double price;
-    private String status;
+    private String status;  // в наличии или отсутствует
 
-    public Book(String name, String authtor, int year, double price, String status) {
+    public Book(String name, String authtor, int year, double price) {
         this.name = name;
         this.authtor = authtor;
         this.year = year;
         this.price = price;
-        this.status = "в налачии";
+        this.status = "в наличии";
     }
 
     public String getName() {
@@ -51,5 +51,17 @@ public class Book {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "name='" + name + '\'' +
+                ", authtor='" + authtor + '\'' +
+                ", year=" + year +
+                ", price=" + price +
+                ", status='" + status + '\'' +
+                '}';
     }
 }
