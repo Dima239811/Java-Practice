@@ -1,0 +1,2 @@
+public class zaglushka {
+}
