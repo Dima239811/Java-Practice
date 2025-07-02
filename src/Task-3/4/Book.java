@@ -3,14 +3,25 @@ public class Book {
     private String authtor;
     private int year;
     private double price;
-    private String status;  // в наличии или отсутствует
+    private StatusBook status;  // в наличии или отсутствует
+    private int bookId;
 
     public Book(String name, String authtor, int year, double price) {
         this.name = name;
         this.authtor = authtor;
         this.year = year;
         this.price = price;
-        this.status = "в наличии";
+        this.status = StatusBook.IN_STOCK;
+        this.bookId = 0;
+    }
+
+    public Book(String name, String authtor, int year, double price, StatusBook status, int bookId) {
+        this.name = name;
+        this.authtor = authtor;
+        this.year = year;
+        this.price = price;
+        this.status = status;
+        this.bookId = bookId;
     }
 
     public String getName() {
@@ -45,14 +56,21 @@ public class Book {
         this.price = price;
     }
 
-    public String getStatus() {
+    public void setStatus(StatusBook statusBook) {
+        this.status = statusBook;
+    }
+
+    public StatusBook getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public int getBookId() {
+        return bookId;
     }
 
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
+    }
 
     @Override
     public String toString() {

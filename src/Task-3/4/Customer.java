@@ -7,6 +7,7 @@ public class Customer {
     private String phoneNumber;
     private String email;
     private String address;
+    private int customerID;
 
     public Customer(String fullName, int age, String phoneNumber, String email, String address) {
         this.fullName = fullName;
@@ -14,6 +15,16 @@ public class Customer {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.address = address;
+        this.customerID = 0;
+    }
+
+    public Customer(String fullName, int age, String phoneNumber, String email, String address, int customerID) {
+        this.fullName = fullName;
+        this.age = age;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.address = address;
+        this.customerID = customerID;
     }
 
     public String getFullName() {
@@ -56,4 +67,11 @@ public class Customer {
         this.address = address;
     }
 
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
+    }
 }

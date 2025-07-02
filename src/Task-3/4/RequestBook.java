@@ -3,12 +3,12 @@ import java.util.Date;
 public class RequestBook {
     private Customer customer;
     private Book book;
-    private String status; // "открыт", "закрыт"
+    private RequestStatus status; // "открыт", "закрыт"
 
     public RequestBook(Customer customer, Book book) {
         this.customer = customer;
         this.book = book;
-        this.status = "открыт";
+        this.status = RequestStatus.OPEN;
     }
 
     public Customer getCustomer() {
@@ -27,11 +27,17 @@ public class RequestBook {
         this.book = book;
     }
 
-    public String getStatus() {
+    public RequestStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(RequestStatus status) {
         this.status = status;
     }
+
+    public void setStatusBook(StatusBook statusBook) {
+        System.out.println("статус книги изменен на " + statusBook);
+        book.setStatus(statusBook);
+    }
+
 }

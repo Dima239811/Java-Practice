@@ -1,25 +1,37 @@
 import java.util.Date;
 
 public class Order {
-    private int id;
+    private int orderId;
     private Book book;
     private Customer customer;
     private Date orderDate;
     private double finalPrice;
-    private Date delieveryDate;
-    private String status;  // создан/ выполнен/ отменен
-    private Payment payment;
+    private OrderStatus status;  // создан/ выполнен/ отменен
 
-
-    public Order(Book book, Customer customer, Date orderDate, double finalPrice, Date delieveryDate, Payment payment, int id) {
+    public Order(Book book, Customer customer, Date orderDate, double finalPrice) {
         this.book = book;
         this.customer = customer;
         this.orderDate = orderDate;
         this.finalPrice = finalPrice;
-        this.delieveryDate = delieveryDate;
-        this.status = "создан";
-        this.payment = payment;
-        this.id = id;
+        this.status = OrderStatus.NEW;
+        this.orderId = 0;
+    }
+
+    public Order(int orderId, Book book, Customer customer, Date orderDate, double finalPrice) {
+        this.orderId = orderId;
+        this.book = book;
+        this.customer = customer;
+        this.orderDate = orderDate;
+        this.finalPrice = finalPrice;
+        this.status = OrderStatus.NEW;
+    }
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
     public Book getBook() {
@@ -54,35 +66,11 @@ public class Order {
         this.finalPrice = finalPrice;
     }
 
-    public Date getDelieveryDate() {
-        return delieveryDate;
-    }
-
-    public void setDelieveryDate(Date delieveryDate) {
-        this.delieveryDate = delieveryDate;
-    }
-
-    public String getStatus() {
+    public OrderStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(OrderStatus status) {
         this.status = status;
-    }
-
-    public Payment getPayment() {
-        return payment;
-    }
-
-    public void setPayment(Payment payment) {
-        this.payment = payment;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }

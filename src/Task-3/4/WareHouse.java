@@ -8,6 +8,14 @@ public class WareHouse {
     private String email;
     private final int maxCapacityBook;
 
+    public WareHouse() {
+        this.maxCapacityBook = 100;
+        this.email = "email";
+        this.address = "address";
+        NameWareHouse = "nameWareHouse";
+        this.books = new ArrayList<>();
+    }
+
     public WareHouse(String nameWareHouse, String address, String email, int maxCapacityBook) {
         this.books = new ArrayList<>();
         NameWareHouse = nameWareHouse;
@@ -53,46 +61,32 @@ public class WareHouse {
     }
 
 
+
+
     // cписание книги со склада
-    public void writeOffBookFromWareHouse(Book book) {
+    public void writeOffBookFromWareHouse(int bookId) {
         for (Book b: books) {
-            if (b.equals(book)) {
-                b.setStatus("отсутствует");
+            if (b.getBookId() == bookId & b.getStatus().equals(StatusBook.IN_STOCK)) {
+                b.setStatus(StatusBook.OUT_OF_STOCK);
                 System.out.println("Статус книги изменен на - отсутсвует");
                 return;
             }
         }
-        System.out.println("Книга " + book + "  не найдена");
+        System.out.println("Книга с id " + bookId + "  не найдена");
     }
 
-    public void addBook(Book book) {
+    public boolean addBook(Book book) {
         if (this.maxCapacityBook > books.size()) {
             books.add(book);
             System.out.println("Книга успешно добавлена на склад!");
+            return true;
         }
         else {
             System.out.println("Склад переполнен!");
+            return false;
         }
     }
 
-    // поиск книги
-    public Book findAvailableBook(Book book) {
-        for (Book b : books) {
-            if (b.equals(book) && "в наличии".equals(b.getStatus())) {
-                return b;
-            }
-        }
-        return null;
-    }
-
-    public boolean hasAvailableBook(Book book) {
-        for (Book b : books) {
-            if (b.equals(book) && "в наличии".equals(b.getStatus())) {
-                return true;
-            }
-        }
-        return false;
-    }
 
 
 }
