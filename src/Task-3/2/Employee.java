@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,4 +72,7 @@ public class Employee {
                 ", taskList=" + taskList +
                 '}';
     }
+=======
+public class Employee {
+>>>>>>> a63133b87734e211753f18915a7ffd2e1d0af806
 }
