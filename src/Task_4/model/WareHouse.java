@@ -1,4 +1,10 @@
+package model;
+
+import comporators.LettersComporators;
+import enums.StatusBook;
+
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class WareHouse {
@@ -60,9 +66,6 @@ public class WareHouse {
         return maxCapacityBook;
     }
 
-
-
-
     // cписание книги со склада
     public void writeOffBookFromWareHouse(int bookId) {
         for (Book b: books) {
@@ -85,6 +88,13 @@ public class WareHouse {
             System.out.println("Склад переполнен!");
             return false;
         }
+    }
+
+
+    public List<Book> sortByName() {
+        LettersComporators lettersComporators = new LettersComporators();
+        books.sort(lettersComporators);
+        return books;
     }
 
 

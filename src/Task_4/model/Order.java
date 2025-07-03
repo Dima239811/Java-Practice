@@ -1,3 +1,7 @@
+package model;
+
+import enums.OrderStatus;
+
 import java.util.Date;
 
 public class Order {

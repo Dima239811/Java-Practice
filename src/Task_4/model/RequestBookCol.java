@@ -1,3 +1,8 @@
+package model;
+
+import enums.RequestStatus;
+import enums.StatusBook;
+
 import java.util.ArrayList;
 import java.util.List;
 

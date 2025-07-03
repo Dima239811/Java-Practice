@@ -1,3 +1,5 @@
+package enums;
+
 public enum StatusBook {
     IN_STOCK("в наличии"),
     OUT_OF_STOCK("отсутствует");

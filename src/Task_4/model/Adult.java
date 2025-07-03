@@ -1,3 +1,5 @@
+package model;
+
 public class Adult extends Customer{
     private String numberPassword;
     private String workplace;

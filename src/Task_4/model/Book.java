@@ -1,3 +1,7 @@
+package model;
+
+import enums.StatusBook;
+
 public class Book {
     private String name;
     private String authtor;
@@ -76,10 +80,7 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "name='" + name + '\'' +
-                ", authtor='" + authtor + '\'' +
-                ", year=" + year +
-                ", price=" + price +
-                ", status='" + status + '\'' +
+
                 '}';
     }
 }

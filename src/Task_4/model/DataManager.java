@@ -1,4 +1,9 @@
+package model;
+
+import enums.OrderStatus;
+
 import java.util.Date;
+import java.util.List;
 
 public class DataManager {
     private WareHouse wareHouse;
@@ -42,6 +47,16 @@ public class DataManager {
         requestBookCol.addRequest(customer, book);
     }
 
+    public List<Book> sorBookInWareHouse(String a) {
+        if (a.equals("по алфавиту")) {
+            return wareHouse.sortByName();
+        }
+        return null;
+    }
+
+    public List<Book> getAllBooks() {
+        return wareHouse.getBooks();
+    }
 
 }
 

@@ -1,3 +1,5 @@
+package enums;
+
 public enum OrderStatus {
     NEW("новый"),
     PROCESSING("в обработке"),

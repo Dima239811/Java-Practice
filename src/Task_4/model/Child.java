@@ -1,3 +1,5 @@
+package model;
+
 public class Child extends Customer{
     private String nameParent;
     private boolean parentConsent; // разрешение родителя на покупку

@@ -1,4 +1,7 @@
-import java.util.Date;
+package model;
+
+import enums.RequestStatus;
+import enums.StatusBook;
 
 public class RequestBook {
     private Customer customer;
