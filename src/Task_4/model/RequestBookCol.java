@@ -1,7 +1,9 @@
-package model;
+package Task_4.model;
 
-import enums.RequestStatus;
-import enums.StatusBook;
+
+
+import Task_4.enums.RequestStatus;
+import Task_4.enums.StatusBook;
 
 import java.util.ArrayList;
 import java.util.List;

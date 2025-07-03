@@ -1,6 +1,7 @@
-package model;
+package Task_4.model;
 
-import enums.StatusBook;
+
+import Task_4.enums.StatusBook;
 
 public class Book {
     private String name;
@@ -80,7 +81,11 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "name='" + name + '\'' +
-
+                ", authtor='" + authtor + '\'' +
+                ", year=" + year +
+                ", price=" + price +
+                ", status=" + status +
+                ", bookId=" + bookId +
                 '}';
     }
 }

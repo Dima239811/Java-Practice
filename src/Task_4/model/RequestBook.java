@@ -1,12 +1,13 @@
-package model;
+package Task_4.model;
 
-import enums.RequestStatus;
-import enums.StatusBook;
+
+import Task_4.enums.RequestStatus;
+import Task_4.enums.StatusBook;
 
 public class RequestBook {
     private Customer customer;
     private Book book;
-    private RequestStatus status; // "открыт", "закрыт"
+    private RequestStatus status;
 
     public RequestBook(Customer customer, Book book) {
         this.customer = customer;

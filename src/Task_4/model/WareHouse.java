@@ -1,10 +1,14 @@
-package model;
+package Task_4.model;
 
-import comporators.LettersComporators;
-import enums.StatusBook;
+
+
+import Task_4.comporator.book.AvailiableComporator;
+import Task_4.comporator.book.LetterComporator;
+import Task_4.comporator.book.PriceComporator;
+import Task_4.comporator.book.YearComporator;
+import Task_4.enums.StatusBook;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class WareHouse {
@@ -92,8 +96,24 @@ public class WareHouse {
 
 
     public List<Book> sortByName() {
-        LettersComporators lettersComporators = new LettersComporators();
+        LetterComporator lettersComporators = new LetterComporator();
         books.sort(lettersComporators);
+        return books;
+    }
+
+    public List<Book> sortByPrice() {
+        PriceComporator priceComporators = new PriceComporator();
+        books.sort(priceComporators);
+        return books;
+    }
+
+    public List<Book> sortByYear() {
+        books.sort(new YearComporator());
+        return books;
+    }
+
+    public List<Book> sortByStatus() {
+        books.sort(new AvailiableComporator());
         return books;
     }
 

@@ -1,4 +1,4 @@
-package model;
+package Task_4.model;
 
 public class Child extends Customer{
     private String nameParent;

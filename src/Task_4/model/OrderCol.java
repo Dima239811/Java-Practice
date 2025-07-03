@@ -1,6 +1,12 @@
-package model;
+package Task_4.model;
 
-import enums.OrderStatus;
+
+
+import Task_4.comporator.book.YearComporator;
+import Task_4.comporator.order.DateOrderComporator;
+import Task_4.comporator.order.PriceOrderComporator;
+import Task_4.comporator.order.StatusOrderComporator;
+import Task_4.enums.OrderStatus;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -31,5 +37,20 @@ public class OrderCol {
                 return;
             }
         }
+    }
+
+    public List<Order> sortByDate() {
+        orderList.sort(new DateOrderComporator());
+        return orderList;
+    }
+
+    public List<Order> sortByPrice() {
+        orderList.sort(new PriceOrderComporator());
+        return orderList;
+    }
+
+    public List<Order> sortByStatus() {
+        orderList.sort(new StatusOrderComporator());
+        return orderList;
     }
 }

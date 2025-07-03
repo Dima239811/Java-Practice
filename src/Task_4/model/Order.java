@@ -1,6 +1,8 @@
-package model;
+package Task_4.model;
 
-import enums.OrderStatus;
+
+
+import Task_4.enums.OrderStatus;
 
 import java.util.Date;
 
@@ -76,5 +78,17 @@ public class Order {
 
     public void setStatus(OrderStatus status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId=" + orderId +
+                ", book=" + book +
+                ", customer=" + customer +
+                ", orderDate=" + orderDate +
+                ", finalPrice=" + finalPrice +
+                ", status=" + status +
+                '}';
     }
 }

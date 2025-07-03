@@ -1,4 +1,4 @@
-package enums;
+package Task_4.enums;
 
 public enum OrderStatus {
     NEW("новый"),

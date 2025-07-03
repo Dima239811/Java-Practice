@@ -1,0 +1,48 @@
+package Task_4.service;
+
+import Task_4.enums.OrderStatus;
+import Task_4.model.Book;
+import Task_4.model.Customer;
+import Task_4.model.Order;
+import Task_4.model.OrderCol;
+
+import java.util.Date;
+import java.util.List;
+
+public class OrderService {
+    private final OrderCol orderCol;
+
+    public OrderService() {
+        this.orderCol = new OrderCol();
+    }
+
+    public void createOrder(Book book, Customer customer, Date orderDate) {
+        orderCol.addOrder(book, customer, orderDate);
+    }
+
+    public void cancelOrder(int orderId) {
+        orderCol.changeStatus(orderId, OrderStatus.CANCELLED);
+    }
+
+    public void changeOrderStatus(int orderId, OrderStatus status) {
+        orderCol.changeStatus(orderId, status);
+    }
+
+    public OrderCol getOrderCol() {
+        return orderCol;
+    }
+
+    public List<Order> sortOrders(String criteria) {
+        switch (criteria.toLowerCase()) {
+            case "по дате":
+                return orderCol.sortByDate();
+            case "по цене":
+                return orderCol.sortByPrice();
+            case "по статусу":
+                return orderCol.sortByStatus();
+            default:
+                System.out.println("Ошибка: неопознанный критерий сортировки.");
+                return orderCol.getOrderList();
+        }
+    }
+}
