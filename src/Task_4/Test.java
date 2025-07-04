@@ -1,10 +1,10 @@
 
+
 import enums.OrderStatus;
 import enums.StatusBook;
 import model.Book;
 import model.Customer;
 import model.DataManager;
-import model.Order;
 
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ public class Test {
     public static void main(String[] args) {
         // сортировка книг
           DataManager dataManager = new DataManager();
-        List<Book> books = new ArrayList<>();
+            List<Book> books = new ArrayList<>();
 
         dataManager.addBookToWareHouse(new Book("1984", "George Orwell", 1949, 12.99, StatusBook.IN_STOCK,
                 new Date(),1));
