@@ -45,4 +45,22 @@ public class OrderService {
                 return orderCol.getOrderList();
         }
     }
+
+    public List<Order> getAllOrder() {
+        return orderCol.getOrderList();
+    }
+
+    public List<Order> sortPerformOrders(String criteria, Date from, Date to) {
+        if (criteria.equals("по дате")) {
+            return orderCol.sortPerformOrderByDate(from, to);
+        } else if (criteria.equals("по цене")) {
+            return orderCol.sortPerformOrderByPrice(from, to);
+        } else {
+            return orderCol.getOrderList();
+        }
+    }
+
+    public double calculateIncomeForPerioud(Date from, Date to) {
+        return orderCol.calculateIncomeForPerioud(from, to);
+    }
 }

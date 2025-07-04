@@ -64,4 +64,24 @@ public class DataManager {
     public void setCustomers(List<Customer> customers) {
         customerService.setCustomers(customers);
     }
+
+    public List<RequestBook> sortRequest(String criteria) {
+        return requestService.sortRequest(criteria);
+    }
+
+    public List<RequestBook> getAllRequestBook() {
+        return requestService.getAllRequestBook();
+    }
+
+    public List<Order> sortPerformOrdersForPeriod(String criteria, Date from, Date to) {
+        return orderService.sortPerformOrders(criteria, from, to);
+    }
+
+    public List<Order> getAllOrder() {
+        return orderService.getAllOrder();
+    }
+
+    public double calculateIncomeForPeriod(Date from, Date to) {
+        return orderService.calculateIncomeForPerioud(from, to);
+    }
 }

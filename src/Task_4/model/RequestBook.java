@@ -44,4 +44,12 @@ public class RequestBook {
         book.setStatus(statusBook);
     }
 
+    @Override
+    public String toString() {
+        return "RequestBook{" +
+                "customer=" + customer +
+                ", book=" + book +
+                ", status=" + status +
+                '}';
+    }
 }
