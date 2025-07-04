@@ -1,7 +1,7 @@
-package Task_4.service;
+package service;
 
-import Task_4.model.Customer;
-import Task_4.model.CustomerCol;
+import model.Customer;
+import model.CustomerCol;
 
 import java.util.List;
 

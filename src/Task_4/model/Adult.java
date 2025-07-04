@@ -1,4 +1,4 @@
-package Task_4.model;
+package model;
 
 public class Adult extends Customer{
     private String numberPassword;

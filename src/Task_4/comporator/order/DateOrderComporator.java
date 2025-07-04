@@ -1,6 +1,6 @@
-package Task_4.comporator.order;
+package comporator.order;
 
-import Task_4.model.Order;
+import model.Order;
 
 import java.util.Comparator;
 import java.util.Date;

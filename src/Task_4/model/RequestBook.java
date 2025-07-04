@@ -1,8 +1,8 @@
-package Task_4.model;
+package model;
 
 
-import Task_4.enums.RequestStatus;
-import Task_4.enums.StatusBook;
+import enums.RequestStatus;
+import enums.StatusBook;
 
 public class RequestBook {
     private Customer customer;

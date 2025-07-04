@@ -1,7 +1,7 @@
-package Task_4.comporator.request;
+package comporator.request;
 
-import Task_4.comporator.book.LetterComporator;
-import Task_4.model.RequestBook;
+import comporator.book.LetterComporator;
+import model.RequestBook;
 
 import java.util.Comparator;
 

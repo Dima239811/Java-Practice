@@ -1,8 +1,8 @@
-package Task_4.model;
+package model;
 
 
 
-import Task_4.enums.OrderStatus;
+import enums.OrderStatus;
 
 import java.util.Date;
 
@@ -13,6 +13,7 @@ public class Order {
     private Date orderDate;
     private double finalPrice;
     private OrderStatus status;  // создан/ выполнен/ отменен
+    private int counterId = 0;
 
     public Order(Book book, Customer customer, Date orderDate, double finalPrice) {
         this.book = book;
@@ -20,7 +21,8 @@ public class Order {
         this.orderDate = orderDate;
         this.finalPrice = finalPrice;
         this.status = OrderStatus.NEW;
-        this.orderId = 0;
+        this.orderId = counterId;
+        counterId++;
     }
 
     public Order(int orderId, Book book, Customer customer, Date orderDate, double finalPrice) {

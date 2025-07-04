@@ -1,4 +1,4 @@
-package Task_4.model;
+package model;
 
 public class Customer {
     private String fullName;
@@ -72,5 +72,17 @@ public class Customer {
 
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "fullName='" + fullName + '\'' +
+                ", age=" + age +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", customerID=" + customerID +
+                '}';
     }
 }

@@ -1,7 +1,9 @@
-package Task_4.model;
+package model;
 
-import Task_4.enums.OrderStatus;
-import Task_4.service.*;
+import enums.OrderStatus;
+import enums.StatusBook;
+import service.*;
+
 
 import java.util.Date;
 import java.util.List;
@@ -24,7 +26,11 @@ public class DataManager {
     }
 
     public void createOrder(Book book, Customer customer, Date orderDate) {
-        orderService.createOrder(book, customer, orderDate);
+        if (wareHouseService.checkStatusBook(book.getBookId()).equals(StatusBook.IN_STOCK))
+            orderService.createOrder(book, customer, orderDate);
+        else {
+            requestService.addRequest(customer, book);
+        }
     }
 
     public void cancelOrder(int orderId) {
@@ -37,6 +43,10 @@ public class DataManager {
 
     public List<Order> sortOrders(String criteria) {
         return orderService.sortOrders(criteria);
+    }
+
+    public Order checkOrderDetails(int idOrder) {
+        return orderService.checkOrderDetails(idOrder);
     }
 
     public void addBookToWareHouse(Book book) {
@@ -83,5 +93,17 @@ public class DataManager {
 
     public double calculateIncomeForPeriod(Date from, Date to) {
         return orderService.calculateIncomeForPerioud(from, to);
+    }
+
+    public int countingOrderForPeriod(Date from, Date to) {
+        return orderService.countingOrderForPeriod(from, to);
+    }
+
+    public List<Book> sortUnsoldBooks(Date current, String criteria) {
+        return wareHouseService.sortUnsoldBooks(current, criteria);
+    }
+
+    public String checkAuthorBook(int id) {
+        return wareHouseService.checkBookAuthor(id);
     }
 }

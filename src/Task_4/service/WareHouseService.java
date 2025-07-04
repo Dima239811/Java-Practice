@@ -1,9 +1,10 @@
-package Task_4.service;
+package service;
 
-import Task_4.enums.StatusBook;
-import Task_4.model.Book;
-import Task_4.model.WareHouse;
+import enums.StatusBook;
+import model.Book;
+import model.WareHouse;
 
+import java.util.Date;
 import java.util.List;
 
 public class WareHouseService {
@@ -41,7 +42,25 @@ public class WareHouseService {
         }
     }
 
+    public List<Book> sortUnsoldBooks(Date current, String criteria) {
+        if (criteria.equals("по дате поступления")) {
+            return wareHouse.sortByDateUnsoldBook(current);
+        } else if (criteria.equals("по цене")) {
+            return wareHouse.sortByPriceUnsoldBook(current);
+        }
+        return wareHouse.getBooks();
+    }
+
     public WareHouse getWareHouse() {
         return wareHouse;
     }
+
+    public String checkBookAuthor(int id) {
+        return wareHouse.checkBookById(id).getAuthor();
+    }
+
+    public StatusBook checkStatusBook(int id) {
+        return wareHouse.checkBookById(id).getStatus();
+    }
+
 }

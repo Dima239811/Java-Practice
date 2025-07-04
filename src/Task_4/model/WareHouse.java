@@ -1,15 +1,18 @@
-package Task_4.model;
+package model;
 
 
 
-import Task_4.comporator.book.AvailiableComporator;
-import Task_4.comporator.book.LetterComporator;
-import Task_4.comporator.book.PriceComporator;
-import Task_4.comporator.book.YearComporator;
-import Task_4.enums.StatusBook;
+import comporator.book.AvailiableComporator;
+import comporator.book.LetterComporator;
+import comporator.book.PriceComporator;
+import comporator.book.YearComporator;
+import enums.StatusBook;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class WareHouse {
     private List<Book> books;
@@ -115,6 +118,38 @@ public class WareHouse {
     public List<Book> sortByStatus() {
         books.sort(new AvailiableComporator());
         return books;
+    }
+
+    public Date calculateSizMonthAgoDate(Date current) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(current);
+        calendar.add(Calendar.MONTH, -6);
+        Date sixMonthsAgo = calendar.getTime();
+        return sixMonthsAgo;
+    }
+
+    public List<Book> sortByDateUnsoldBook(Date current) {
+        Date sixMonthsAgo = calculateSizMonthAgoDate(current);
+
+        return books.stream().filter(books -> books.getStatus().equals(StatusBook.IN_STOCK))
+                .filter(book -> book.getEntranceDate().before(sixMonthsAgo))
+                .collect(Collectors.toList());
+    }
+
+
+    public List<Book> sortByPriceUnsoldBook(Date current) {
+        Date sixMonthsAgo = calculateSizMonthAgoDate(current);
+
+        return books.stream().filter(books -> books.getStatus().equals(StatusBook.IN_STOCK))
+                .filter(book -> book.getEntranceDate().before(sixMonthsAgo))
+                .sorted(new PriceComporator())
+                .collect(Collectors.toList());
+    }
+
+    public Book checkBookById(int id) {
+        return books.stream().
+                filter(book -> book.getBookId() == id)
+                .findFirst().orElse(null);
     }
 
 

@@ -1,4 +1,4 @@
-package Task_4.enums;
+package enums;
 
 public enum StatusBook {
     IN_STOCK("в наличии"),

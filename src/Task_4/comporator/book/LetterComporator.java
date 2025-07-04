@@ -1,8 +1,8 @@
-package Task_4.comporator.book;
+package comporator.book;
 
 
 
-import Task_4.model.Book;
+import model.Book;
 
 import java.util.Comparator;
 

@@ -1,10 +1,10 @@
-package Task_4.service;
+package service;
 
-import Task_4.enums.OrderStatus;
-import Task_4.model.Book;
-import Task_4.model.Customer;
-import Task_4.model.Order;
-import Task_4.model.OrderCol;
+import enums.OrderStatus;
+import model.Book;
+import model.Customer;
+import model.Order;
+import model.OrderCol;
 
 import java.util.Date;
 import java.util.List;
@@ -62,5 +62,13 @@ public class OrderService {
 
     public double calculateIncomeForPerioud(Date from, Date to) {
         return orderCol.calculateIncomeForPerioud(from, to);
+    }
+
+    public int countingOrderForPeriod(Date from , Date to) {
+        return orderCol.countingPerformOrderForPeriod(from, to);
+    }
+
+    public Order checkOrderDetails(int idOrder) {
+        return orderCol.getOrderByID(idOrder);
     }
 }

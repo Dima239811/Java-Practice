@@ -1,12 +1,12 @@
-package Task_4.model;
+package model;
 
 
 
-import Task_4.comporator.book.YearComporator;
-import Task_4.comporator.order.DateOrderComporator;
-import Task_4.comporator.order.PriceOrderComporator;
-import Task_4.comporator.order.StatusOrderComporator;
-import Task_4.enums.OrderStatus;
+import comporator.book.YearComporator;
+import comporator.order.DateOrderComporator;
+import comporator.order.PriceOrderComporator;
+import comporator.order.StatusOrderComporator;
+import enums.OrderStatus;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -101,5 +101,15 @@ public class OrderCol {
                 .stream()
                 .mapToDouble(Order::getFinalPrice)
                 .sum();
+    }
+
+    public int countingPerformOrderForPeriod(Date from, Date to) {
+        return ((Long) (long) filterOrdersByDateAndStatus(from, to, OrderStatus.COMPLETED)
+                .size()).intValue();
+    }
+
+    public Order getOrderByID(int id) {
+        return orderList.stream().filter(order -> order.getOrderId() == id)
+                .findFirst().orElse(null);
     }
 }

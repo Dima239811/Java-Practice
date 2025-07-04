@@ -1,16 +1,14 @@
-package Task_4.model;
+package model;
 
 
 
-import Task_4.comporator.request.LetterRequestComporator;
-import Task_4.enums.RequestStatus;
-import Task_4.enums.StatusBook;
+import comporator.request.LetterRequestComporator;
+import enums.RequestStatus;
+import enums.StatusBook;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class RequestBookCol {
     private List<RequestBook> requests = new ArrayList<>();
@@ -30,7 +28,7 @@ public class RequestBookCol {
 
     public void closeRequest(Book book) {
         for (RequestBook requestBook: requests) {
-            if (book.getAuthtor().equals(requestBook.getBook().getAuthtor()) & book.getName().equals(requestBook.getBook().getName())) {
+            if (book.getAuthor().equals(requestBook.getBook().getAuthor()) & book.getName().equals(requestBook.getBook().getName())) {
                 requestBook.setStatus(RequestStatus.CLOSED);
                 requestBook.setStatusBook(StatusBook.IN_STOCK);
                 System.out.println("запрос на книгу закрыт");

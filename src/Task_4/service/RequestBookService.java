@@ -1,9 +1,9 @@
-package Task_4.service;
+package service;
 
-import Task_4.model.Book;
-import Task_4.model.Customer;
-import Task_4.model.RequestBook;
-import Task_4.model.RequestBookCol;
+import model.Book;
+import model.Customer;
+import model.RequestBook;
+import model.RequestBookCol;
 
 import java.util.List;
 

@@ -1,32 +1,65 @@
-package Task_4.model;
+package model;
 
 
-import Task_4.enums.StatusBook;
+import enums.StatusBook;
+
+import java.util.Date;
 
 public class Book {
     private String name;
-    private String authtor;
+    private String author;
     private int year;
     private double price;
     private StatusBook status;  // в наличии или отсутствует
+    private Date entranceDate;
     private int bookId;
 
-    public Book(String name, String authtor, int year, double price) {
-        this.name = name;
-        this.authtor = authtor;
-        this.year = year;
-        this.price = price;
-        this.status = StatusBook.IN_STOCK;
-        this.bookId = 0;
-    }
+//    public Book(String name, String authtor, int year, double price) {
+//        this.name = name;
+//        this.author = authtor;
+//        this.year = year;
+//        this.price = price;
+//        this.status = StatusBook.IN_STOCK;
+//        this.bookId = 0;
+//    }
 
-    public Book(String name, String authtor, int year, double price, StatusBook status, int bookId) {
+
+    public Book(String name, String author, int year, double price, StatusBook status, Date entranceDate) {
         this.name = name;
-        this.authtor = authtor;
+        this.author = author;
         this.year = year;
         this.price = price;
         this.status = status;
+        this.entranceDate = entranceDate;
+        this.bookId = 0;
+    }
+
+    public Book(String name, String author, int year, double price, StatusBook status, Date entranceDate, int bookId) {
+        this.name = name;
+        this.author = author;
+        this.year = year;
+        this.price = price;
+        this.status = status;
+        this.entranceDate = entranceDate;
         this.bookId = bookId;
+    }
+
+//    public Book(String name, String authtor, int year, double price, StatusBook status, int bookId) {
+//        this.name = name;
+//        this.author = authtor;
+//        this.year = year;
+//        this.price = price;
+//        this.status = status;
+//        this.bookId = bookId;
+//    }
+
+
+    public Date getEntranceDate() {
+        return entranceDate;
+    }
+
+    public void setEntranceDate(Date entranceDate) {
+        this.entranceDate = entranceDate;
     }
 
     public String getName() {
@@ -37,12 +70,12 @@ public class Book {
         this.name = name;
     }
 
-    public String getAuthtor() {
-        return authtor;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAuthtor(String authtor) {
-        this.authtor = authtor;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public int getYear() {
@@ -81,10 +114,11 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "name='" + name + '\'' +
-                ", authtor='" + authtor + '\'' +
+                ", author='" + author + '\'' +
                 ", year=" + year +
                 ", price=" + price +
                 ", status=" + status +
+                ", entranceDate=" + entranceDate +
                 ", bookId=" + bookId +
                 '}';
     }
